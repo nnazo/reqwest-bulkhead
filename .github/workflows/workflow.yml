@@ -67,18 +67,12 @@ jobs:
           profile: minimal
           override: true
 
-      - name: Check (tokio)
+      - name: Check
         run: cargo check
       
-      - name: Check (async-std)
-        run: cargo check --no-default-features --features rt-async-std
-
-      - name: Check (smol)
-        run: cargo check --no-default-features --features rt-smol
-
-  # Test with Tokio on Ubuntu
+  # Test on Ubuntu
   test:
-    name: Test (Tokio)
+    name: Test
     runs-on: ubuntu-latest
     needs: cargo_check # First check then run tests
     strategy:
